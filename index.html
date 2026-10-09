@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07142f">
+<title>For Sayang ✦ a little piece of my sky</title>
+<style>
+  :root{--navy:#07142f;--blue:#122b5c;--ice:#dff4ff;--pale:#b7e5ff;--lav:#b8b9ff;--white:#f8fcff}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--white);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:radial-gradient(ellipse at 50% 0%,#244c86 0%,#101f49 36%,#07142f 76%);min-height:100vh;overflow-x:hidden}
+  button{font:inherit}
+  .sky{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.65;animation:twinkle 3s infinite ease-in-out alternate}
+  @keyframes twinkle{from{opacity:.2;transform:scale(.7)}to{opacity:1;transform:scale(1.35)}}
+  .shooting{position:absolute;width:100px;height:2px;background:linear-gradient(90deg,#fff,transparent);transform:rotate(-35deg);animation:shoot 8s linear infinite;opacity:0}
+  @keyframes shoot{0%,72%{opacity:0;transform:translate(0,0) rotate(-35deg)}74%{opacity:.8}90%{opacity:0;transform:translate(-260px,180px) rotate(-35deg)}100%{opacity:0}}
+  .wrap{position:relative;z-index:1}
+  .topbar{position:fixed;z-index:5;top:14px;left:50%;transform:translateX(-50%);width:min(92%,720px);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid #ffffff26;border-radius:999px;background:#07142fa8;backdrop-filter:blur(14px)}
+  .brand{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#d6efff}
+  .music{border:1px solid #c9eaff60;color:white;background:#ffffff12;border-radius:999px;padding:8px 13px;cursor:pointer;font-size:.8rem}
+  .music:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+  section{width:min(100% - 32px,850px);margin:auto;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:100px 0 65px}
+  .hero{text-align:center;flex-direction:column}
+  .moon{width:118px;height:118px;border-radius:50%;margin:0 auto 26px;background:radial-gradient(circle at 32% 27%,#fff 0%,#e3f6ff 28%,#a9d8ff 55%,#6d9fe4 100%);box-shadow:0 0 35px #8bd4ff80,0 0 100px #70aaff40;position:relative;animation:float 5s ease-in-out infinite}
+  .moon:after{content:"";position:absolute;width:35px;height:35px;top:23px;left:22px;border-radius:50%;background:#a9cdec66;box-shadow:35px 35px 0 -8px #7aa8dc55,-5px 45px 0 -12px #7aa8dc66}
+  @keyframes float{50%{transform:translateY(-12px)}}
+  .eyebrow{color:#b9e6ff;text-transform:uppercase;letter-spacing:.22em;font-size:.73rem}
+  h1{font-size:clamp(2.5rem,9vw,5.5rem);line-height:1.03;margin:14px 0 18px;letter-spacing:-.055em}
+  .gradient{background:linear-gradient(100deg,#fff,#b7e8ff 45%,#c9c7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{max-width:560px;color:#d8e8ff;line-height:1.8;font-size:1.02rem;margin:0 auto 28px}
+  .btn{border:0;border-radius:999px;padding:14px 22px;background:linear-gradient(110deg,#a6e4ff,#c6c5ff);color:#102348;font-weight:800;cursor:pointer;box-shadow:0 10px 30px #6eaeff2b;transition:.2s}
+  .ghost{background:#ffffff0c;color:#edf8ff;border:1px solid #ffffff42;box-shadow:none}
+  .btnrow{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+  .hint{font-size:.78rem;color:#9eb8de;margin-top:20px}
+  .card{width:100%;padding:clamp(22px,5vw,42px);border:1px solid #d9f0ff2c;border-radius:28px;background:linear-gradient(145deg,#ffffff13,#ffffff06);box-shadow:0 24px 80px #02081755;backdrop-filter:blur(10px)}
+  .section-label{color:#9bdfff;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem}
+  h2{font-size:clamp(1.8rem,6vw,3.1rem);line-height:1.1;letter-spacing:-.04em;margin:12px 0 18px}
+  p{line-height:1.85;color:#d8e7ff}
+  .letter{white-space:pre-line;font-size:1.02rem}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,#bceaff60,transparent);margin:25px 0}
+  .memory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+  .memory{min-height:145px;border:1px solid #d8efff32;border-radius:18px;padding:16px 12px;background:#a8dfff0c;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:9px}
+  .memory .emoji{font-size:1.8rem}.memory b{font-size:.9rem}.memory span:last-child{font-size:.78rem;line-height:1.5;color:#bed3f3}
+  .promise{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid #ffffff14}
+  .promise:last-child{border:0}.promise .num{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#b8e5ff18;border:1px solid #c2e9ff40;color:#c4eaff}
+  .secret{display:none;margin-top:22px;padding:20px;border-radius:18px;background:#a7dfff12;border:1px dashed #bdeaff70;animation:appear .6s ease}
+  .secret.show{display:block}
+  @keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .final{text-align:center}
+  .heart{display:inline-block;color:#b6e7ff;animation:beat 1.5s infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.2)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+  .footer{text-align:center;color:#819bc4;font-size:.76rem;padding:0 16px 28px;position:relative;z-index:1}
+  .float-heart{position:fixed;bottom:-40px;pointer-events:none;z-index:8;animation:rise 5s linear forwards;filter:drop-shadow(0 0 8px #a5dfff70)}
+  @keyframes rise{to{transform:translateY(-110vh) translateX(var(--drift)) rotate(25deg);opacity:0}}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#f0f9ff;color:#102348;border-radius:999px;padding:11px 16px;font-size:.83rem;z-index:10;box-shadow:0 10px 30px #0004;display:none}
+  @media(max-width:560px){.memory-grid{grid-template-columns:1fr}.memory{min-height:105px;flex-direction:row;text-align:left;justify-content:flex-start;align-items:center;padding:15px}.memory .emoji{font-size:1.7rem;width:40px}.memory span:last-child{display:block}.topbar{top:8px}.brand{font-size:.67rem}.music{font-size:.73rem}.moon{width:96px;height:96px}}
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"><div class="shooting" style="top:18%;left:80%;animation-delay:2s"></div><div class="shooting" style="top:42%;left:60%;animation-delay:5s"></div></div>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand">✦ a little piece of my sky</div>
+    <button class="music" id="musicBtn" aria-label="Putar musik">♫ Nyalakan musik</button>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="moon" aria-hidden="true"></div>
+    <div class="eyebrow">a tiny universe, made for you</div>
+    <h1><span class="gradient">Happy Birthday,</span><br>Sayang ♡</h1>
+    <p class="lead">Hari ini, langit terasa punya alasan ekstra untuk bersinar. Salah satunya karena seseorang yang jauh di sana sedang bertambah usia. Dan seseorang itu adalah kamu.</p>
+    <div class="btnrow">
+      <button class="btn" onclick="document.querySelector('#letter').scrollIntoView({behavior:'smooth'})">Buka surat kecilku ↓</button>
+      <button class="btn ghost" id="sprinkleBtn">Kirim bintang ✨</button>
+    </div>
+    <div class="hint">dibuat dengan banyak doa, sedikit rindu, dan seluruh sayangku.</div>
+  </section>
+
+  <section id="letter">
+    <article class="card">
+      <div class="section-label">01 · a letter from me</div>
+      <h2>Untuk kamu,<br><span class="gradient">rumah yang jauh.</span></h2>
+      <div class="letter" id="letterText">Happy birthday, sayangku. 🤍
+
+Selamat bertambah usia, ya. Semoga di umur yang baru ini, hal-hal baik makin sering menemukan kamu. Semoga kamu selalu diberi kesehatan, hati yang tenang, langkah yang dimudahkan, dan keberanian untuk mengejar semua yang kamu impikan.
+
+Makasih sudah hadir di hidupku. Walaupun kita belum bisa merayakan hari ini berdampingan, aku tetap ingin kamu merasa dirayakan. Jarak mungkin bikin aku belum bisa ada di sampingmu untuk menyanyikan lagu ulang tahun atau melihat senyum kamu secara langsung, tapi jarak nggak menghalangi aku buat mendoakanmu.
+
+Kalau hari-harimu nanti terasa berat, semoga kamu ingat kalau kamu nggak harus selalu kuat setiap waktu. Kamu juga boleh istirahat, boleh cerita, dan boleh pelan-pelan. Aku berharap dunia memperlakukan kamu dengan lembut, sayang.
+
+Aku nggak tahu semua hal yang menunggu kita ke depannya, tapi aku berharap akan ada hari ketika ucapan ini bisa kusampaikan langsung, bukan cuma lewat layar. Sampai hari itu datang, jaga diri baik-baik, ya.
+
+Happy birthday, my favorite person. Semoga tahun ini membawa banyak alasan baru untuk kamu tersenyum. Aku ikut bahagia karena kamu lahir ke dunia. ♡</div>
+      <div class="divider"></div>
+      <p style="margin-bottom:0">— dari aku, yang hari ini ikut berharap banyak hal baik datang ke kamu. <span class="heart">♥</span></p>
+    </article>
+  </section>
+
+  <section id="little-things">
+    <article class="card">
+      <div class="section-label">02 · little things i love</div>
+      <h2>Hal kecil, rasa yang besar.</h2>
+      <p>Di antara banyak hal di dunia ini, ada beberapa hal sederhana yang bikin hubungan kita punya tempat spesial di hatiku.</p>
+      <div class="memory-grid">
+        <div class="memory"><span class="emoji">🌙</span><div><b>Obrolan kita</b><br><span>Hal sederhana yang bikin hari terasa lebih dekat.</span></div></div>
+        <div class="memory"><span class="emoji">💌</span><div><b>Perhatian kecil</b><br><span>Pesan singkat pun bisa terasa berarti.</span></div></div>
+        <div class="memory"><span class="emoji">🌌</span><div><b>Harapan bertemu</b><br><span>Satu hari nanti, semoga bukan cuma layar yang memisahkan kita.</span></div></div>
+      </div>
+      <div class="divider"></div>
+      <p>Kalau aku bisa mengirim satu hal melewati jarak malam ini, aku ingin mengirim rasa tenang: semoga kamu tahu bahwa keberadaanmu berarti.</p>
+    </article>
+  </section>
+
+  <section id="wishes">
+    <article class="card">
+      <div class="section-label">03 · wishes for your new chapter</div>
+      <h2>Doa-doa kecil untukmu. ✨</h2>
+      <div class="promise"><div class="num">01</div><div><b>Semoga sehat dan bahagia.</b><p>Semoga tubuhmu kuat, pikiranmu lebih tenang, dan kamu punya banyak hari yang terasa ringan.</p></div></div>
+      <div class="promise"><div class="num">02</div><div><b>Semoga semua prosesmu dimudahkan.</b><p>Nggak harus langsung sampai ke tujuan. Semoga setiap langkah kecilmu tetap membawa kamu maju.</p></div></div>
+      <div class="promise"><div class="num">03</div><div><b>Semoga kamu selalu dikelilingi hal baik.</b><p>Orang-orang yang tulus, kesempatan yang tepat, dan alasan untuk percaya pada diri sendiri.</p></div></div>
+      <div class="promise"><div class="num">04</div><div><b>Semoga kita punya banyak kenangan baik.</b><p>Lebih banyak tawa, obrolan jujur, saling memahami, dan semoga suatu hari bisa merayakan ulang tahun bersama.</p></div></div>
+      <div class="divider"></div>
+      <div class="final"><button class="btn" id="secretBtn">Ada satu kejutan lagi… 🎁</button>
+        <div class="secret" id="secret">
+          <div style="font-size:2.2rem">🌠</div>
+          <h2 style="font-size:1.8rem">Make a wish, sayang.</h2>
+          <p>Pejamkan mata sebentar, pikirkan satu harapanmu, lalu tiup lilin imajiner ini. 🕯️</p>
+          <p><b>Kalau aku boleh ikut berharap:</b> semoga suatu hari nanti kita bisa melihat langit yang sama tanpa harus mengucapkan “aku kangen” lewat layar.</p>
+          <button class="btn ghost" id="wishBtn">Aku sudah berharap 🤍</button>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="end">
+    <div class="final">
+      <div class="moon" style="width:80px;height:80px;margin-bottom:24px" aria-hidden="true"></div>
+      <div class="eyebrow">until we meet under the same sky</div>
+      <h2 style="font-size:clamp(2.2rem,8vw,4.3rem)">Jauh di peta,<br><span class="gradient">dekat di doa.</span></h2>
+      <p class="lead">Selamat ulang tahun, sayang. Terima kasih sudah lahir dan menjadi bagian dari ceritaku. Hari ini, besok, dan di hari-hari yang sedang kita usahakan. <span class="heart">♡</span></p>
+      <button class="btn" id="hugBtn">Kirim peluk virtual 🫂</button>
+      <p class="hint" id="hugText">tekan tombolnya kalau kamu butuh peluk dari jauh.</p>
+    </div>
+  </section>
+</div>
+<div class="footer">made for Sayang, with love & stardust ✦</div>
+<div class="toast" id="toast"></div>
+<script>
+  // Bintang latar dibuat otomatis agar halaman terasa hidup.
+  const sky = document.getElementById('sky');
+  for(let i=0;i<95;i++){
+    const s=document.createElement('i'); s.className='star';
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*4)+'s';
+    s.style.animationDuration=(2+Math.random()*4)+'s';
+    const size=1+Math.random()*2.5; s.style.width=size+'px'; s.style.height=size+'px';
+    sky.appendChild(s);
+  }
+  function burst(count=18){
+    const icons=['✦','✧','♡','✨','⋆'];
+    for(let i=0;i<count;i++){
+      const e=document.createElement('span'); e.className='float-heart';
+      e.textContent=icons[Math.floor(Math.random()*icons.length)];
+      e.style.left=(5+Math.random()*90)+'vw'; e.style.fontSize=(14+Math.random()*22)+'px';
+      e.style.color=['#dff6ff','#b6caff','#fff','#b9e7ff'][Math.floor(Math.random()*4)];
+      e.style.setProperty('--drift',(Math.random()*160-80)+'px');
+      e.style.animationDuration=(3+Math.random()*3)+'s';
+      document.body.appendChild(e); setTimeout(()=>e.remove(),6500);
+    }
+  }
+  document.getElementById('sprinkleBtn').addEventListener('click',()=>{burst(30);toast('Satu taburan bintang khusus buat kamu ✨')});
+  document.getElementById('secretBtn').addEventListener('click',()=>{
+    const s=document.getElementById('secret'); s.classList.toggle('show');
+    document.getElementById('secretBtn').textContent=s.classList.contains('show')?'Kejutannya sudah terbuka ♡':'Ada satu kejutan lagi… 🎁';
+    if(s.classList.contains('show')){burst(24);s.scrollIntoView({behavior:'smooth',block:'center'})}
+  });
+  document.getElementById('wishBtn').addEventListener('click',()=>{burst(40);toast('Semoga harapan baikmu menemukan jalan pulang 🤍')});
+  document.getElementById('hugBtn').addEventListener('click',()=>{burst(45);document.getElementById('hugText').textContent='Peluk virtual terkirim! Bayangkan peluk hangat yang bertahan sedikit lebih lama. 🫂'});
+  let toastTimer;
+  function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.style.display='none',2800)}
+
+  // Musik instrumental mini dibuat dengan Web Audio, tanpa file lagu eksternal.
+  let audioCtx=null, musicTimer=null, musicOn=false, noteIndex=0, master=null;
+  const notes=[261.63,329.63,392.00,329.63,293.66,349.23,440.00,349.23,261.63,329.63,392.00,523.25,440.00,392.00,329.63,293.66];
+  function playNote(freq,when,duration){
+    const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+    osc.type='sine';osc.frequency.setValueAtTime(freq,when);
+    gain.gain.setValueAtTime(0.0001,when);gain.gain.exponentialRampToValueAtTime(0.075,when+0.07);
+    gain.gain.exponentialRampToValueAtTime(0.0001,when+duration);
+    osc.connect(gain);gain.connect(master);osc.start(when);osc.stop(when+duration+0.03);
+  }
+  async function toggleMusic(){
+    const btn=document.getElementById('musicBtn');
+    if(!musicOn){
+      try{
+        audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+        await audioCtx.resume();master=audioCtx.createGain();master.gain.value=.45;master.connect(audioCtx.destination);
+        musicOn=true;btn.textContent='♫ Matikan musik';
+        const play=()=>{if(!musicOn)return;const now=audioCtx.currentTime;playNote(notes[noteIndex%notes.length],now,.85);if(noteIndex%4===0)playNote(notes[(noteIndex+4)%notes.length]/2,now,1.2);noteIndex++;musicTimer=setTimeout(play,620)};
+        play();toast('Musik lembut mulai diputar ♫');
+      }catch(e){toast('Browser belum bisa memutar audio. Coba tekan lagi ya.')}
+    }else{
+      musicOn=false;clearTimeout(musicTimer);if(master)master.gain.setTargetAtTime(.0001,audioCtx.currentTime,.08);
+      setTimeout(()=>{if(audioCtx){audioCtx.close();audioCtx=null;master=null}},350);
+      btn.textContent='♫ Nyalakan musik';toast('Musik dijeda 🤍');
+    }
+  }
+  document.getElementById('musicBtn').addEventListener('click',toggleMusic);
+</script>
+</body>
+</html>
